@@ -2,7 +2,7 @@
 
 # Verificar Privilégios de Administrador
 if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
-    Write-Host "ERRO: Este script precisa ser executado como ADMINISTRADOR para instalar o WSL." -ForegroundColor Red
+    Write-Host "ERRO: Este script precisa ser executado pelo PowerShell como ADMINISTRADOR para instalar o WSL." -ForegroundColor Red
     Pause
     exit
 }
