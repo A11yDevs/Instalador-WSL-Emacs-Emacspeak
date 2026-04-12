@@ -34,7 +34,9 @@ políticas de execução.
 Antes de converter, certifique-se de que o seu **script.ps1** é robusto. Como discutido, para um
 instalador de ambiente WSL/Linux, é recomendável incluir uma verificação de sanidade no
 início:
+
 # Verificação de ambiente sugerida
+
 if (!(wsl --list --quiet)) {
 Write-Host "O WSL não foi detectado. A iniciar instalação do Ubuntu..." -ForegroundColor
 Cyan
@@ -50,15 +52,20 @@ exit
 ### Passo 1: Instalação do Módulo
 
 Abra o PowerShell como Administrador e execute o comando abaixo:
+
 Install-Module -Name ps2exe -Force -Scope CurrentUser
+
 _Nota: Se o sistema pedir permissão para instalar do repositório 'PSGallery', responda com A
 (Yes to All)._
 
 ### Passo 2: Conversão Simples
 
 Para uma conversão rápida sem personalizações, use os seguintes comandos:
+
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+
 ps2exe "C:\Users\usuário\Caminho\Local\Script.ps1" -outputFile ".\Installer.exe" -requireAdmin
+
 _Nota: Copie o caminho do seu script e cole ao terminal substituindo a seção
 "C:\Users\usuário\Caminho\Local\Script.ps1" pelas informações do seu determinado arquivo._
 
@@ -66,11 +73,17 @@ _Nota: Copie o caminho do seu script e cole ao terminal substituindo a seção
 
 Para o projeto de maior seriedade é recomendável adicionar metadados e um ícone para
 passar mais confiança ao utilizador:
-ps2exe .\Script.ps1 .\InstaladorWSL.exe `
--IconFile "seu_icone.ico" `
--Title "Instalador" `
--Description "Configuração/Instalação Automática do Ambiente" `
+
+ps2exe .\Script.ps1 .\InstaladorWSL.exe
+
+-IconFile "seu_icone.ico"
+
+-Title "Instalador"
+
+-Description "Configuração/Instalação Automática do Ambiente"
+
 -Company "O Seu Nome/Empresa" `
+
 -Version "1.0.0.1"
 
 #### Parâmetros Úteis:
