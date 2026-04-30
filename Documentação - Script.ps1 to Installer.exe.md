@@ -112,6 +112,8 @@ digitalmente o executável (o que requer um certificado pago).
 O executável gerado pelo PS2EXE tenta contornar as restrições de execução (ExecutionPolicy)
 automaticamente, mas em sistemas muito restritos, pode ser necessário garantir que o
 utilizador tenha permissões mínimas de execução de scripts.
+Além disso atende-se ao local em que o executavél foi salvo em sua máquina, procure o arquivo na pasta "C:\Windows\System32"
+usando o atalho tecla Windows + R.
 
 ## Alternativas de Distribuição
 
